@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corresponsales</title>
+    <link rel="stylesheet" href="../corresponsales/css/stylesCorresponsales.css">
+    <script src="../corresponsales/js/jsCorresponsales.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <button class="back-button" onclick="goBack()">&#8592;</button>
+            <button id="darkModeToggle" class="dark-mode-btn">Modo Oscuro</button>
+            <h1>Corresponsales</h1>
+        </div>
+    </header>
+    <div class="grid">
+        <a href="http://localhost:3000/crear-corresponsal" class="card crear-card" id="cardCrear">
+            <h3>Crear</h3>
+        </a>
+        <a href="http://localhost:3000/buscar-corresponsal" class="card buscar-card" id="cardBuscar">
+            <h3>Buscar</h3>
+        </a>
+        <a href="http://localhost:3000/corresponsales-retirados" class="card retirados-card" id="cardRetirados">
+            <h3>Retirados</h3>
+        </a>  
+    </div>
+</body>
+</html>

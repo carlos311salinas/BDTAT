@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corresponsales</title>
+    <link rel="stylesheet" href="../Maquinas/css/stylesMaquinas.css">
+    <script src="../Maquinas/js/jsMaquinas.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <button class="back-button" onclick="goBack()">&#8592;</button>
+            <button id="darkModeToggle" class="dark-mode-btn">Modo Oscuro</button>
+            <h1>MAQUINAS</h1>
+        </div>
+    </header>
+    <div class="grid">
+        <a href="http://localhost:3000/crear-maquina" class="card crear-card" id="cardCrear">
+            <h3>Crear</h3>
+        </a>
+        <a href="http://localhost:3000/buscar-maquina" class="card buscar-card" id="cardBuscar">
+            <h3>Buscar</h3>
+        </a>
+        <a href="http://localhost:3000/buscar-maquinas-mantenimiento" class="card mantenimiento-card" id="cardMantenimiento">
+            <h3>En Mantenimiento</h3>
+        </a>  
+    </div>
+</body>
+</html>

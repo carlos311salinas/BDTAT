@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Corresponsal</title>
+    <link rel="stylesheet" href="../corresponsales/corresponsalesretirados/css/stylesCorresponsalesRetirados.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="banner">
+            <button class="back-button" onclick="goBack()">&#8592;</button>
+            <button id="darkModeToggle" class="dark-mode-btn">Modo Oscuro</button>
+        <h1>CORRESPONSALES RETIRADOS</h1>
+    </header>
+    <section>
+        <div class="container">
+            <h2>Corresponsales</h2>
+            <form id="formCorresponsales">
+                <div class="form-group">
+                    <label for="nombrecorresponsal">Nombre del Corresponsal</label>
+                    <input type="text" id="nombrecorresponsal" maxlength="100" autocomplete="off" placeholder="Nombre Corresponsal">
+                </div>
+                <div class="form-group">
+                    <label for="codigoSeta">Código Seta</label>
+                    <input type="text" id="codigoseta" maxlength="20" autocomplete="off" placeholder="Código Seta">
+                </div>
+                <div class="form-group">
+                    <label for="tecnologia">Tecnología</label>
+                    <div class="dropdown">
+                        <input type="text" id="tecnologia"  maxlength="50" autocomplete="off" placeholder="Tecnología" onkeyup="filterOptions(event, 'tecnologia')">
+                        <div class="options" id="tecnologiaOptions">
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">INCUBA MOVIL</div>
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">INCUBA ONLINE</div>
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">SETA</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="imeiacercademac">IMEI / ACERCA DE / MAC</label>
+                    <input type="text" id="imeiacercademac" maxlength="50" autocomplete="off" placeholder="IMEI / ACERCA DE / MAC">
+                </div>
+                <div class="form-group">
+                    <label for="nombrecompleto">Nombre Completo</label>
+                    <input type="text" id="nombrecompleto" name="nombrecompleto" maxlength="100" autocomplete="off" placeholder="Nombre Completo">
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" id="cedula"  maxlength="50" autocomplete="off" placeholder="Cédula">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono"  maxlength="10" autocomplete="off" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo"  maxlength="50" autocomplete="off" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion"  maxlength="200" autocomplete="off" placeholder="Dirección">
+                </div>
+                <div class="form-group">
+                    <label for="municipio">Municipio</label>
+                    <div class="dropdown">
+                        <input type="text" id="municipio" maxlength="50" autocomplete="off" placeholder="Municipio" onkeyup="filterOptions(event, 'municipio')">
+                        <div class="options" id="municipioOptions">
+                            <div class="option" onclick="selectOption(event, 'municipio')">Aguadas</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Anserma</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Aranzazu</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Belalcázar</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Chinchiná</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Filadelfia</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">La Dorada</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">La Merced</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Manizales</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Manzanares</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Marmato</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Marquetalia</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Marulanda</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Neira</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Norcasia</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Pácora</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Palestina</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Pensilvania</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Riosucio</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Risaralda</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Salamina</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Samaná</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">San José</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Supía</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Victoria</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Villamaría</div>
+                            <div class="option" onclick="selectOption(event, 'municipio')">Viterbo</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="longitud">Longitud</label>
+                    <input type="text" id="longitud" name="longitud" maxlength="50" placeholder="Longitud" autocomplete="off" >
+                </div>
+
+                <div class="form-group">
+                    <label for="latitud">Latitud</label>
+                    <input type="text" id="latitud" name="latitud" maxlength="50" placeholder="Latitud" autocomplete="off" >
+                </div>
+
+                <div class="form-group">
+                    <label for="codigodane">Código Dane</label>
+                    <div class="dropdown">
+                        <input type="text" id="codigodane" maxlength="20" autocomplete="off" placeholder="Código Dane" onkeyup="filterOptions(event, 'codigodane')">
+                        <div class="options" id="codigodaneOptions">
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17272</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17388</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17442</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17614</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17777</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17433</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17444</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17446</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17541</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17042</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17088</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17616</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17665</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">173</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17174</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17001</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17486</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17524</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17873</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17013</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17050</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17513</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17653</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17380</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17495</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17662</div>
+                            <div class="option" onclick="selectOption(event, 'codigodane')">17867</div>                            
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="codigopostal">Código Postal</label>
+                    <input type="text" id="codigopostal" placeholder="Código Postal" maxlength="20" autocomplete="off">
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="lider">Líder Corresponsal</label>
+                    <div class="dropdown">
+                        <input type="text" id="lider" maxlength="50" autocomplete="off" placeholder="Líder Corresponsal" onkeyup="filterOptions(event, 'lider')">
+                        <div class="options" id="liderOptions">
+                            <div class="option" onclick="selectOption(event, 'lider')">Andres Felipe Garcia</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Fernando</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Dayana</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Judy</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Daniel Noreña</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Edilberto</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Ruben Zambrano</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tiponegocio">Tipo de Negocio</label>
+                    <div class="dropdown">
+                        <input type="text" id="tiponegocio" maxlength="50" autocomplete="off" placeholder="Tipo de Negocio" onkeyup="filterOptions(event, 'tiponegocio')">
+                        <div class="options" id="tiponegocioOptions">
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Abastos</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Ambulante</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Rural</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Minimercado</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Rapitienda</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Drogueria</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Panaderia</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Vereda</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Ferreteria</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Corregimiento</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Estanquillo</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Autoservicio</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Kiosco</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Almacen</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Multiservicio</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Miscelanea</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Papeleria</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Variedades</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Cacharreria</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Tienda</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Cafeteria</div>
+                            <div class="option" onclick="selectOption(event, 'tiponegocio')">Billares</div>
+                        </div>
+                        <div class="error-message"></div> <!-- Contenedor para el mensaje de error --></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="zona">Urbano o Rural</label>
+                    <div class="dropdown">
+                        <input type="text" id="zona" maxlength="50" autocomplete="off" placeholder="Urbano o Rural" onkeyup="filterOptions(event, 'zona')">
+                        <div class="options" id="zonaOptions">
+                            <div class="option" onclick="selectOption(event, 'zona')">Urbano</div>
+                            <div class="option" onclick="selectOption(event, 'zona')">Rural</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoría</label>
+                    <div class="dropdown">
+                        <input type="text" id="categoria" maxlength="50" autocomplete="off" placeholder="Categoría" onkeyup="filterOptions(event, 'categoria')">
+                        <div class="options" id="categoriaOptions">
+                            <div class="option" onclick="selectOption(event, 'categoria')">Master</div>
+                            <div class="option" onclick="selectOption(event, 'categoria')">Senior</div>
+                            <div class="option" onclick="selectOption(event, 'categoria')">Junior</div>
+                            <div class="option" onclick="selectOption(event, 'categoria')">Ambulante</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="siminternet">SIM / WIFI / ANTENA SUSUERTE</label>
+                    <div class="dropdown">
+                        <input type="text" id="siminternet" maxlength="50" autocomplete="off" placeholder="SIM o Internet" onkeyup="filterOptions(event, 'siminternet')">
+                        <div class="options" id="siminternetOptions">
+                            <div class="option" onclick="selectOption(event, 'siminternet')">SIM</div>
+                            <div class="option" onclick="selectOption(event, 'siminternet')">WIFI</div>
+                            <div class="option" onclick="selectOption(event, 'siminternet')">ANTENA</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalidad">Modalidad</label>
+                    <div class="dropdown">
+                        <input type="text" id="modalidad" maxlength="50" autocomplete="off" placeholder="Modalidad" onkeyup="filterOptions(event, 'modalidad')">
+                        <div class="options" id="modalidadOptions">
+                            <div class="option" onclick="selectOption(event, 'modalidad')">Prepago</div>
+                            <div class="option" onclick="selectOption(event, 'modalidad')">Pospago</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha De Vinculación</label>
+                    <input type="text" id="fecha" autocomplete="off" placeholder="aaaa - mm - dd">
+                </div>
+
+                <div class="form-group">
+                    <label for="fecharetiro">Fecha De Retiro</label>
+                    <input type="text" id="fecharetiro" autocomplete="off" placeholder="aaaa - mm - dd">
+                </div>
+
+                <div class="form-group">
+                    <label for="personaretira">Persona que retira</label>
+                    <input type="text" id="personaretira" maxlength="50" autocomplete="off" placeholder="Persona que retira">
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">ESTADO</label>
+                    <div class="dropdown">
+                        <input type="text" id="estado" maxlength="50" autocomplete="off" placeholder="ESTADO" onkeyup="filterOptions(event, 'estado')">
+                        <div class="options" id="estadoOptions">
+                            <div class="option" onclick="selectOption(event, 'estado')">ACTIVO</div>
+                            <div class="option" onclick="selectOption(event, 'estado')">INACTIVO</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="activosfijos">Activos fijos</label>
+                    <textarea id="activosfijos" class="comentario-input"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="comentario">Motivo por el cual se retira</label>
+                    <textarea type="text" id="comentario" maxlength="2000" autocomplete="off" placeholder="Comentario" class="comentario-input"></textarea>
+                </div>
+
+                <input type="hidden" id="corresponsalId"> <!--Almacena el ID del corresponsal-->
+                <div class="button-container">
+                    <button type="submit" id="btnBuscar" name="btnBuscar">Buscar</button>
+                    <button type="button" id="btnEditar">Actualizar</button>
+                    <button type="reset" id="btnLimpiar">Limpiar</button>                   
+                </div>
+
+                
+            </form>
+    </section>
+
+    <div class="tabla-container">
+  <table id="tablacorresponsales">
+    <thead>
+      <tr>
+        <th>Fecha De Vinculación</th>
+        <th>NOMBRE</th>
+        <th>Imei/AcercaDe/Mac</th>
+        <th>Código seta</th>
+        <th>Tecnología</th>
+        <th>Municipio</th>
+        <th>Líder Corresponsal</th>
+        <th>Estado</th>
+        <th>Fecha De Retiro</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se llenarán las filas de los corresponsales -->
+    </tbody>
+  </table>
+  
+  <!-- Controles de paginación -->
+  <div class="paginacion">
+    <button id="prevPage" class="paginacion-btn">&laquo; Anterior</button>
+    <span id="pageNumber">Página 1 de 1</span>
+    <button id="nextPage" class="paginacion-btn">Siguiente &raquo;</button>
+    <button id="btnExportExcel" class="paginacion-btn">
+        <i class="fas fa-file-excel"></i> Exportar Excel
+    </button>
+    
+  </div>
+  
+  <!-- Contenedor para el total de corresponsales, ahora debajo -->
+  <div id="totalCorresponsales">
+    Total de corresponsales: <span id="totalCount">0</span>
+  </div>
+
+    <script src="../corresponsales/corresponsalesretirados/js/jsCorresponsalesRetirados.js"></script>
+    <script src="../corresponsales/corresponsalesretirados/js/jsTablaCorresponsalesRetirados.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+
+    
+</body>
+</html>

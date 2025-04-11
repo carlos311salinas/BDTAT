@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREAR MAQUINA</title>
+    <link rel="stylesheet" href="../../Maquinas/css/stylesCrearMaquina.css">
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <button class="back-button" onclick="goBack()">&#8592;</button>
+            <button id="darkModeToggle" class="dark-mode-btn">Modo Oscuro</button>
+            <h1>MAQUINAS</h1>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <h2>CREAR MAQUINA</h2>
+            <form id="formMaquinas" action="http://localhost:3000/api/maquinas" method="POST">
+                <div class="form-group">
+                    <label for="tecnologia">Tecnología</label>
+                    <div class="dropdown">
+                        <input type="text" id="tecnologia" name="tecnologia" autocomplete="off" maxlength="50" placeholder="Seleccionar Tecnología" onkeyup="filterOptions(event, 'tecnologia')" required>
+                        <div class="options" id="tecnologiaOptions">
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">PDA CS10</div>
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">T1 Smart Mobile POS</div>
+                            <div class="option" onclick="selectOption(event, 'tecnologia')">BP80</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="imeiacercademac">IMEI / ACERCA DE / MAC</label>
+                    <input type="text" id="imeiAcercademac" name="imeiacercademac" placeholder="123456" maxlength="50" autocomplete="off" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">PLACA</label>
+                    <input type="text" id="placa" name="placa" placeholder="0000123" maxlength="50" autocomplete="off" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="serial">SERIAL</label>
+                    <input type="text" id="serial" name="serial" maxlength="50" placeholder="0000123" autocomplete="off" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lider">Líder Corresponsal</label>
+                    <div class="dropdown">
+                        <input type="text" id="lider" name="lider" maxlength="50" autocomplete="off" placeholder="Seleccionar Líder" onkeyup="filterOptions(event, 'lider')" required>
+                        <div class="options" id="liderOptions">
+                            <div class="option" onclick="selectOption(event, 'lider')">Andres Felipe Garcia</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Fernando</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Dayana</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Judy</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Daniel Noreña</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Edilberto</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">Ruben Zambrano</div>
+                            <div class="option" onclick="selectOption(event, 'lider')">NO TIENE</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="siminternet">TIENE SIM?</label>
+                    <div class="dropdown">
+                        <input type="text" id="siminternet" name="siminternet" maxlength="50" autocomplete="off" placeholder="Seleccionar" onkeyup="filterOptions(event, 'siminternet')" required>
+                        <div class="options" id="siminternetOptions">
+                            <div class="option" onclick="selectOption(event, 'siminternet')">SI</div>
+                            <div class="option" onclick="selectOption(event, 'siminternet')">NO</div>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula">Cédula del corresponsal</label>
+                    <input type="text" id="cedula" name="cedula" maxlength="50" autocomplete="off" placeholder="Cédula">
+                </div>
+
+                <div class="form-group">
+                    <label for="nombrecorresponsal">Asignada a corresponsal:</label>
+                    <input type="text" id="nombrecorresponsal" name="nombrecorresponsal" maxlength="100" autocomplete="off" placeholder="Nombre Corresponsal">
+                </div>
+                
+                <div class="form-group">
+                    <label for="codigoSeta">Código Seta</label>
+                    <input type="text" id="codigoseta" name="codigoseta" maxlength="20" autocomplete="off" placeholder="Código Seta">
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha De Creación</label>
+                    <input type="date" id="fecha" name="fecha" autocomplete="off" placeholder="Fecha de Fabriación" required>
+                </div>
+
+                <button type="submit">Crear Maquina</button>
+            </form>
+        </div>
+    </section>
+    <script src="../../Maquinas/js/jsCrearMaquina.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

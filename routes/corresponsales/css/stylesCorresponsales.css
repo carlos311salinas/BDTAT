@@ -1,0 +1,163 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5; /* Color de fondo suave */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Asegura que el contenido se alinee arriba */
+    min-height: 100vh;
+    padding-top: 60px; /* Espacio para el banner fijo */
+}
+
+/* Estilos del banner */
+.banner {
+    background-color: #555; /* Gris oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed; /* Fija el banner en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Estilos de la cuadrícula */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta a más de 4 si hay espacio */
+    gap: 20px; /* Espacio entre cuadros */
+    width: 100%;
+    max-width: 1300px;
+    margin-top: 300px;
+    justify-items: center;
+}
+
+/* Estilos de los cuadros interactivos */
+.card {
+    background-color: #fff;
+    padding: 80px; /* Aumenta el padding para hacer los cuadros más grandes */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-decoration: none; /* Elimina subrayado del enlace */
+    color: #333; /* Color de texto */
+    font-size: 1.8rem; /* Aumenta el tamaño de la fuente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px; /* Ajusta la altura de los cuadros */
+    width: 100%;
+    max-width: 500px; /* Limita el ancho máximo de los cuadros */
+}
+
+/* Colores específicos para cada cuadro */
+.crear-card {
+    background-color: #4caf50; /* Color verde */
+    color: white; /* Asegura que el texto sea blanco para resaltar */
+}
+
+.buscar-card {
+    background-color: #ff9800; /* Color naranja */
+    color: white; /* Asegura que el texto sea blanco para resaltar */
+}
+
+.retirados-card {
+    background-color: #f44336; /* Color rojo */
+    color: white; /* Asegura que el texto sea blanco para resaltar */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Eleva el cuadro al hacer hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* Estilo del pie de página */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/*Modo Oscuro*/
+
+/* Estilo del botón de modo oscuro */
+.dark-mode-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+    background-color: #555;
+}
+
+/* Estilo para el modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+.banner.dark-mode {
+    background-color: #222;
+}
+
+/* Estilos para el botón "Volver" */
+.back-button {
+    position: absolute;
+    top: 50%; /* Centra verticalmente en el banner */
+    left: 20px; /* Distancia desde el borde izquierdo */
+    transform: translateY(-50%); /* Ajuste para centrar verticalmente */
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    font-size: 1rem; /* Tamaño del texto */
+    text-decoration: none; /* Elimina subrayado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: background-color 0.3s ease; /* Animación al hacer hover */
+    z-index: 1001; /* Asegura que esté por encima del contenido */
+}
+
+/* Agregamos el efecto de hover al botón "Volver" */
+.back-button:hover {
+    background-color: #555; /* Cambia el color al pasar el cursor */
+}
+/* Estilos de SweetAlert en modo oscuro */
+.dark-mode .swal2-popup {
+    background-color: #333 !important; /* Fondo oscuro */
+    color: white !important; /* Texto blanco */
+}
+

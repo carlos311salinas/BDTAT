@@ -1,0 +1,650 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Estilos del banner */
+.banner {
+    background-color: #555; /* Gris oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed; /* Fija el banner en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.banner h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Ajuste global del contenido */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    padding-top: 80px; /* Reserva espacio igual a la altura del banner */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem; /* Incrementa el tamaño del texto */
+    margin-bottom: 1em; /* Opcional: mejora el espaciado inferior */
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em; /* Espacio entre los campos */
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 1.5em); /* Dos campos por fila, con espacio entre ellos */
+    margin-bottom: 1.5em;
+}
+
+.motivoenvio-input {
+    width: 100%;
+    height: 100px; /* Ajusta la altura según prefieras */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    resize: vertical; /* Permite ajustar la altura si es necesario */
+}
+
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    border-color: #5b9bd5;
+    outline: none;
+}
+
+/* Flecha dentro del campo */
+.dropdown::after {
+    content: '▼'; /* Símbolo de flecha */
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Estilo general de las listas desplegables */
+.dropdown {
+    position: relative;
+}
+
+.options {
+    display: none; /* Ocultar por defecto */
+    position: absolute;
+    max-height: 150px; /* Altura máxima de la lista */
+    overflow-y: auto; /* Agrega el scroll vertical */
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Asegura que las opciones queden por encima de otros elementos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.option.active {
+    background-color: #007bff; /* Color de fondo para la opción activa */
+    color: white; /* Color del texto para la opción activa */
+}
+.option.focused {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.option:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mostrar opciones al interactuar */
+.dropdown.active .options {
+    display: block;
+}
+
+input[readonly] {
+    cursor: pointer;
+}
+
+/* Contenedor de los botones */
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si es necesario */
+    justify-content: center; /* Centra los botones */
+    gap: 100px; /* Espaciado grande en pantallas grandes */
+    margin-top: 2em;
+    width: 100%;
+}
+
+/* Botones generales */
+button {
+    flex: 1 1 auto; /* Distribuye los botones de manera uniforme */
+    max-width: calc(25% - 10px); /* Hace que cada botón ocupe el 25% del ancho en pantallas grandes */
+    min-width: 120px; /* Evita que sean demasiado pequeños */
+    padding: 1em 2em;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+/* EXCEPCIÓN: Botones del banner */
+.back-button, .dark-mode-btn {
+    flex: none; /* Evita que se expandan */
+    max-width: initial; /* Permite definir un tamaño fijo */
+    min-width: initial; /* Evita que se reduzcan demasiado */
+    width: auto; /* Ocupa solo el espacio necesario */
+    padding: 0.5em 1.2em; /* Ajusta el tamaño del botón */
+    font-size: 0.9em; /* Hace el texto un poco más pequeño */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center; /* Centra los botones */
+        gap: 20px; /* Espaciado más pequeño en modo vertical */
+    }
+
+    button {
+        width: 100%; /* Ocupa el 100% del contenedor */
+        max-width: 100%; /* Se asegura de que no haya restricciones */
+    }
+
+    /* Mantener pequeños los botones del banner en pantallas pequeñas */
+    .back-button, .dark-mode-btn {
+        width: auto; /* No se expanden */
+        max-width: none;
+    }
+}
+
+/* Botón Buscar */
+#btnBuscar {
+    background-color: #4CAF50; /* Verde */
+}
+
+#btnBuscar:hover {
+    background-color: #45a049;
+}
+
+/* Botón Editar */
+#btnEditar {
+    background-color: #FF9800; /* Naranja */
+}
+
+#btnEditar:hover {
+    background-color: #f57c00;
+}
+
+/* Botón Limpiar */
+#btnLimpiar {
+    background-color: #0077ffab; /* Azul */
+}
+
+#btnLimpiar:hover {
+    background-color: #006bb3;
+}
+
+/* Botón Retirar */
+#btnEnviar {
+    background-color: #f44336; /* Rojo */
+}
+
+#btnEnviar:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para el campo en error */
+.input-error {
+    border: 2px solid red;
+    outline: none;
+}
+
+/* Estilo para el mensaje de error */
+.error-message {
+    color: red;
+    font-size: 10.5px;
+    margin-top: 4px;
+}
+
+/* Contenedor para la tabla historial */
+.tabla-container2 {
+    background-color: #f9f9f9; /* Fondo agradable */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Contenedor para la tabla */
+.tabla-container {
+    margin: 20px auto; /* Margen alrededor de la tabla */
+    max-width: 1200px; /* Ancho máximo para la tabla */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9; /* Fondo agradable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla MOTIVOENVIO*/
+#tablahistorial {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Permite que el contenido determine el ancho */
+}
+  
+#tablahistorial th, #tablahistorial td {
+    border: 1px solid #ddd;
+    padding: 4px;
+    overflow: hidden;
+    white-space: nowrap; /* Evita que el contenido desborde */
+    text-overflow: ellipsis; /* Si el contenido es muy grande, se corta con "..." */
+}
+  
+#tablahistorial th {
+    background-color: #f2f2f2;
+}
+  
+#tablahistorial td:first-child { 
+    min-width: 30px; /* Ajusta según lo necesario */
+    max-width: 50px;
+    text-align: center;
+}
+  
+#tablahistorial tr:hover {
+    background-color: #ddd;
+}
+
+/* Tabla MAQUINAS*/
+#tablamaquinas {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+#tablamaquinas th, #tablamaquinas  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+  
+#tablamaquinas  th {
+    background-color: #f2f2f2;
+}
+  
+#tablamaquinas  tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+  
+#tablamaquinas  tr:hover {
+    background-color: #ddd;
+}
+  
+/* Botones en la columna de acciones */
+#tablamaquinas td button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#tablamaquinas  td button:hover {
+    background-color: #45a049;
+}
+
+#totalmaquinas {
+    text-align: center;
+    padding: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+  
+.paginacion-btn {
+    background-color: #45a049;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.paginacion-btn:hover {
+    background-color: #14e41f;
+}
+  
+#pageNumber {
+    font-size: 16px;
+}
+
+/*icono editar*/
+.fas.fa-edit {
+    color: #4CAF50;
+    font-size: 16px;
+}
+  
+.fas.fa-edit:hover {
+    color: #45a049;
+}
+
+/* Agregar desplazamiento horizontal en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .tabla-container {
+        overflow-x: auto; /* Activar scroll horizontal */
+    }
+
+    #tablamaquinas {
+        min-width: 600px; /* Aseguramos que la tabla tenga un ancho mínimo para que se active el scroll */
+    }
+    #tablahistorial {
+        min-width: 600px; /* Aseguramos que la tabla tenga un ancho mínimo para que se active el scroll */
+    }
+}
+  
+/*Modo Oscuro*/
+
+/* Modo oscuro para el contenedor del formulario */
+body.dark-mode .container {
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #f5f5f5; /* Texto claro */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombra más suave */
+}
+
+body.dark-mode h2 {
+    color: #f5f5f5; /* Color claro para que se vea bien */
+}
+
+body.dark-mode input[type="date"] {
+    color-scheme: dark; /* Para que los iconos del sistema se adapten al modo oscuro */
+}
+
+/* Modo oscuro para etiquetas */
+body.dark-mode label {
+    color: #ddd; /* Color más claro para las etiquetas */
+}
+
+/* Modo oscuro para los campos del formulario */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="tel"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="date"],
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #333; /* Fondo oscuro */
+    color: #f5f5f5; /* Texto claro */
+    border: 1px solid #555; /* Bordes más oscuros */
+}
+
+/* Cambiar color del placeholder en modo oscuro */
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #bbb; /* Texto tenue */
+}
+
+/* Cuando los campos estén en foco */
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    border-color: #0c9beed7; /* Color al enfocar */
+    outline: none;
+}
+
+/* Modo oscuro para la lista desplegable */
+body.dark-mode .options {
+    background-color: #222;
+    border-color: #444;
+}
+
+body.dark-mode .option {
+    color: #ddd;
+}
+
+body.dark-mode .option:hover {
+    background-color: #333;
+}
+
+/* Estilo del botón de modo oscuro */
+.dark-mode-btn {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para el modo oscuro */
+body.dark-mode {
+    background-color: #141414d5;
+    color: #f5f5f5;
+}
+
+.banner.dark-mode {
+    z-index: 1001; /* Asegura que esté por encima del contenido */
+    background-color: #222;
+}
+
+/* Estilos para el botón "Volver" */
+.back-button {
+    position: absolute;
+    top: 50%; /* Centra verticalmente en el banner */
+    left: 20px; /* Distancia desde el borde izquierdo */
+    transform: translateY(-50%); /* Ajuste para centrar verticalmente */
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    font-size: 1rem; /* Tamaño del texto */
+    text-decoration: none; /* Elimina subrayado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: background-color 0.3s ease; /* Animación al hacer hover */
+    z-index: 1002; /* Asegura que esté por encima del contenido */
+}
+
+/* Modo oscuro para la tabla */
+body.dark-mode .tabla-container {
+    background-color: #1e1e1e; /* Fondo oscuro para el contenedor */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Modo oscuro para la tabla */
+body.dark-mode .tabla-container2 {
+    background-color: #1e1e1e; /* Fondo oscuro para el contenedor */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+body.dark-mode table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2a2a2a; /* Fondo oscuro */
+    color: #f5f5f5; /* Texto claro */
+    border: 1px solid #444; /* Bordes oscuros */
+}
+
+body.dark-mode th {
+    background-color: #333 !important; /* Fondo oscuro */
+    color: #fff !important; /* Texto blanco */
+    padding: 10px;
+    border-bottom: 2px solid #555;
+}
+
+/* Asegurar que las nuevas filas sigan el modo oscuro */
+body.dark-mode .fila-dark {
+    background-color: #252525 !important;
+    color: #f5f5f5 !important;
+}
+
+body.dark-mode .fila-dark:hover {
+    background-color: #383838 !important;
+}
+
+
+body.dark-mode td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode tbody tr:nth-child(even) {
+    background-color: #252525; /* Filas pares con fondo más oscuro */
+}
+
+body.dark-mode tbody tr:hover {
+    background-color: #383838; /* Efecto hover */
+}
+
+/* Estilos para los botones de paginación en modo oscuro */
+body.dark-mode .paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+body.dark-mode .paginacion-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .paginacion-btn:hover {
+    background-color: #4CAF50; /* Color al pasar el mouse */
+}
+
+/* Estilo para el texto de la paginación */
+body.dark-mode #pageNumber {
+    color: #f5f5f5;
+}
+
+/* Estilo para el botón de exportar a Excel */
+body.dark-mode #btnExportExcel {
+    background-color: #217346; /* Verde Excel */
+    color: white;
+}
+
+body.dark-mode #btnExportExcel:hover {
+    background-color: #4CAF50;
+}
+
+/* Estilo para el total de maquinas en modo oscuro */
+body.dark-mode #totalmaquinas {
+    text-align: center;
+    padding: 10px;
+    color: #f5f5f5;
+    font-weight: bold;
+}
+
+/* Estilo general del scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra */
+}
+
+/* Scrollbar en modo claro */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color de fondo claro */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color de la barra */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Scrollbar en modo oscuro */
+.dark-mode ::-webkit-scrollbar-track {
+    background: #222; /* Fondo oscuro */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #555; /* Barra en color más oscuro */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+/* Estilos de SweetAlert en modo oscuro */
+.dark-mode .swal2-popup {
+    background-color: #333 !important; /* Fondo oscuro */
+    color: white !important; /* Texto blanco */
+}
